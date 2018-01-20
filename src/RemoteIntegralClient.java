@@ -21,19 +21,26 @@ public class RemoteIntegralClient {
                     (RemoteIntegral)Naming.lookup("rmi://" + host +
                             "/RemoteIntegral");
 
-            HashMap<String, Vector<Message>> chatVerlauf = new HashMap<>();
 
+            DataWrapper dataWrapper;
+
+            //generating stuff
+            HashMap<String, Vector<Message>> chatVerlauf = new HashMap<>();
             Vector<Message> vec = new Vector<>();
             for(int i=0; i< 10; i++) {
                 vec.add(new Message("zeides", "kindler", Integer.toString(i)));
             }
             chatVerlauf.put("zeides", vec);
 
-            System.out.println(chatVerlauf);
+            dataWrapper = new DataWrapper("zeides", chatVerlauf);
+
+            System.out.println("Derzeitiger Verlauf: ");
+            System.out.println(dataWrapper.getChatVerlauf());
             System.out.println();
             System.out.println();
 
-            System.out.print(remoteIntegral.reloadData(chatVerlauf));
+            dataWrapper = remoteIntegral.reloadDataWrapper(dataWrapper);
+            System.out.print(dataWrapper.getChatVerlauf());
 
         } catch(RemoteException re) {
             System.out.println("RemoteException: " + re);

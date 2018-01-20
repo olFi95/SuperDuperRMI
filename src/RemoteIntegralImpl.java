@@ -8,7 +8,7 @@ public class RemoteIntegralImpl extends UnicastRemoteObject
 
     public RemoteIntegralImpl() throws RemoteException {}
 
-    public HashMap<String, Vector<Message>> reloadData(HashMap<String, Vector<Message>> map) throws RemoteException {
+    public HashMap<String, Vector<Message>> reloadchatVerlauf(HashMap<String, Vector<Message>> map) throws RemoteException {
         System.out.println(map);
         Vector<Message> vec = new Vector<>();
         for(int i=0;i < 10; i++) {
@@ -17,5 +17,13 @@ public class RemoteIntegralImpl extends UnicastRemoteObject
         map.put("alex", vec);
 
         return map;
+    }
+
+    @Override
+    public DataWrapper reloadDataWrapper(DataWrapper dataWrapper) {
+        Vector<Message> vec = new Vector<>();
+        vec.add(new Message("zeides", "david", "neuer conent"));
+        dataWrapper.getChatVerlauf().put("alex", new Vector<Message>(vec));
+        return dataWrapper;
     }
 }
