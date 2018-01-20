@@ -33,35 +33,8 @@ public class RemoteIntegralClient {
             System.out.println();
             System.out.println();
 
-            System.out.print(remoteIntegral.checkForUpdate(chatVerlauf));
+            System.out.print(remoteIntegral.reloadData(chatVerlauf));
 
-
-
-//            System.out.println(remoteIntegral.recieveMessage("zeides", "kindler", "das tut nicht wirklich"));
-
-
-
-//            for(int steps=10; steps<=10000; steps*=10) {
-//                System.out.println
-//                        ("Approximated with " + steps + " steps:" +
-//                                "\n Integral from 0 to pi of sin(x)=" +
-//                                remoteIntegral.integrate(0.0, Math.PI,
-//                                        steps, new Sin()) +
-//                                "\n Integral from pi/2 to pi of cos(x)=" +
-//                                remoteIntegral.integrate(Math.PI/2.0, Math.PI,
-//                                        steps, new Cos()) +
-//                                "\n Integral from 0 to 5 of x^2=" +
-//                                remoteIntegral.integrate(0.0, 5.0, steps,
-//                                        new Quadratic()));
-//            }
-//            System.out.println
-//                    ("'Correct' answer using Math library:" +
-//                            "\n Integral from 0 to pi of sin(x)=" +
-//                            (-Math.cos(Math.PI) - -Math.cos(0.0)) +
-//                            "\n Integral from pi/2 to pi of cos(x)=" +
-//                            (Math.sin(Math.PI) - Math.sin(Math.PI/2.0)) +
-//                            "\n Integral from 0 to 5 of x^2=" +
-//                            (Math.pow(5.0, 3.0) / 3.0));
         } catch(RemoteException re) {
             System.out.println("RemoteException: " + re);
         } catch(NotBoundException nbe) {
