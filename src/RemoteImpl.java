@@ -1,3 +1,7 @@
+import model.Contact;
+import model.Message;
+import model.ProfileWrapper;
+
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
@@ -8,22 +12,17 @@ public class RemoteImpl extends UnicastRemoteObject
 
     public RemoteImpl() throws RemoteException {}
 
-    public HashMap<String, Vector<Message>> reloadchatVerlauf(HashMap<String, Vector<Message>> map) throws RemoteException {
-        System.out.println(map);
-        Vector<Message> vec = new Vector<>();
-        for(int i=0;i < 10; i++) {
-            vec.add(new Message("alex", "kindler", Integer.toString(i)));
-        }
-        map.put("alex", vec);
-
-        return map;
-    }
-
     @Override
-    public DataWrapper reloadDataWrapper(DataWrapper dataWrapper) {
+    public ProfileWrapper reloadProfileWrapper(ProfileWrapper profileWrapper) throws RemoteException {
+        HashMap<Contact, Vector<Message>> chatVerlauf = new HashMap<>();
         Vector<Message> vec = new Vector<>();
-        vec.add(new Message("zeides", "david", "neuer conent"));
-        dataWrapper.getChatVerlauf().put("alex", new Vector<Message>(vec));
-        return dataWrapper;
+        for(int i=0; i< 10; i++) {
+            vec.add(new Message("zeides", "alex", Integer.toString(i)));
+        }
+        Contact contact = new Contact("alex", 0);
+
+        profileWrapper.getChatVerlauf().put(contact, vec);
+
+        return profileWrapper;
     }
 }

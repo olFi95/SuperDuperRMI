@@ -1,6 +1,8 @@
 package model;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String contactEmail;
     private int chatType;
 
@@ -23,5 +25,10 @@ public class Contact {
 
     public void setChatType(int chatType) {
         this.chatType = chatType;
+    }
+
+    @Override
+    public String toString() {
+        return contactEmail;
     }
 }

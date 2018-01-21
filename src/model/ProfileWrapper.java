@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class ProfileWrapper {
+public class ProfileWrapper implements Serializable{
     //email but id for mongodb (primary key)
     private String _id;
     private String password;
@@ -40,5 +41,12 @@ public class ProfileWrapper {
 
     public void setChatVerlauf(HashMap<Contact, Vector<Message>> chatVerlauf) {
         this.chatVerlauf = chatVerlauf;
+    }
+
+    @Override
+    public String toString() {
+        return "email = " + _id+
+                "\npassword = "+ password +
+                "\n"+chatVerlauf;
     }
 }
