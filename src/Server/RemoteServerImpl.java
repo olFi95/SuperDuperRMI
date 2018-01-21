@@ -47,11 +47,13 @@ public class RemoteServerImpl extends UnicastRemoteObject implements RemoteServe
     //server distributes messages
     @Override
     public void sendMessage(Message message) throws RemoteException {
+        //empfänger
+        String to = message.getTo();
 
         //checken ob endpunkt zu contact existiert
-        if(remoteClients.containsKey(message.getTo())) {
+        if(remoteClients.containsKey(to)) {
             //beim empfänger nachricht hinzufügen
-            remoteClients.get(message.getTo()).addMessage(message);
+            remoteClients.get(to).addMessage(message);
         } else {
             System.out.println("Contact Callback nicht vohanden");
         }
