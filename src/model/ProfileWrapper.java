@@ -11,9 +11,9 @@ public class ProfileWrapper implements Serializable{
 
     //Key = Kontake
     //Value = Liste mit Nachrichten
-    private HashMap<Contact, Vector<Message>> chatVerlauf;
+    private HashMap<String, Vector<Message>> chatVerlauf;
 
-    public ProfileWrapper(String _id, String password, HashMap<Contact, Vector<Message>> chatVerlauf) {
+    public ProfileWrapper(String _id, String password, HashMap<String, Vector<Message>> chatVerlauf) {
         this._id = _id;
         this.password = password;
         this.chatVerlauf = chatVerlauf;
@@ -35,11 +35,11 @@ public class ProfileWrapper implements Serializable{
         this.password = password;
     }
 
-    public HashMap<Contact, Vector<Message>> getChatVerlauf() {
+    public HashMap<String, Vector<Message>> getChatVerlauf() {
         return chatVerlauf;
     }
 
-    public void setChatVerlauf(HashMap<Contact, Vector<Message>> chatVerlauf) {
+    public void setChatVerlauf(HashMap<String, Vector<Message>> chatVerlauf) {
         this.chatVerlauf = chatVerlauf;
     }
 
