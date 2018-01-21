@@ -3,12 +3,12 @@ import java.net.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class RemoteIntegralServer {
+public class RemoteServer {
     public static void main(String[] args) {
         try {
-            RemoteIntegralImpl integral = new RemoteIntegralImpl();
+            RemoteImpl integral = new RemoteImpl();
             Registry rmiRegistry = LocateRegistry.createRegistry(1099);
-            Naming.rebind("rmi:///RemoteIntegral", integral);
+            Naming.rebind("rmi:///Remote", integral);
         } catch(RemoteException re) {
             System.out.println("RemoteException: " + re);
         } catch(MalformedURLException mfe) {

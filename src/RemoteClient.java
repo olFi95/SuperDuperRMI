@@ -1,6 +1,5 @@
 import java.rmi.*;
 import java.net.*;
-import java.io.*;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -11,15 +10,15 @@ import java.util.Vector;
  * line argument.
  */
 
-public class RemoteIntegralClient {
+public class RemoteClient {
 
 
     public static void main(String[] args) {
         try {
             String host = (args.length > 0) ? args[0] : "localhost";
-            RemoteIntegral remoteIntegral =
-                    (RemoteIntegral)Naming.lookup("rmi://" + host +
-                            "/RemoteIntegral");
+            Remote remoteIntegral =
+                    (Remote)Naming.lookup("rmi://" + host +
+                            "/Remote");
 
 
             DataWrapper dataWrapper;

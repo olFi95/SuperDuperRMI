@@ -3,10 +3,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class RemoteIntegralImpl extends UnicastRemoteObject
-        implements RemoteIntegral {
+public class RemoteImpl extends UnicastRemoteObject
+        implements Remote {
 
-    public RemoteIntegralImpl() throws RemoteException {}
+    public RemoteImpl() throws RemoteException {}
 
     public HashMap<String, Vector<Message>> reloadchatVerlauf(HashMap<String, Vector<Message>> map) throws RemoteException {
         System.out.println(map);
